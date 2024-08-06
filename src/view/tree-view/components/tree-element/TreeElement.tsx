@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { TreeElement } from "../../../../types"
+import { Checkbox } from "../Checkbox"
 import { ReactComponent as Arrow } from "./../../../../style/assets/arrow.svg"
 import styles from "./index.module.scss"
 
@@ -34,7 +35,7 @@ export const TreeElementComponent = (
            event.stopPropagation()
            setIsOpen(!isOpen)
          }}>
-      <div className={styles.row}>
+      <div className={styles.row} style={isLastChild ? {marginLeft: "10px"} : {}}>
         {!isLastChild &&
           <div onClick={() => setIsOpen(!isOpen)}
                className={isOpen ? styles.arrow : styles.arrowRotated}
@@ -42,7 +43,8 @@ export const TreeElementComponent = (
             <Arrow/>
           </div>}
         {!isFirstChild &&
-          <input className={styles.input} type={"checkbox"}/>}
+          <Checkbox/>
+        }
         <div onClick={(event) => {
           event.stopPropagation()
           onElementClick(element.id)

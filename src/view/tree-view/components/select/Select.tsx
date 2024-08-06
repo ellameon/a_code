@@ -1,6 +1,7 @@
 import styles from "./index.module.scss"
 import React, { useState } from 'react';
 import { ReactComponent as Arrow } from "./../../../../style/assets/arrow.svg"
+import { Checkbox } from "../Checkbox";
 
 type Props = {
   options: {value: string, label: string}[]
@@ -36,13 +37,11 @@ export const Select = (
         <div className={styles.options}>
           {options.map(option => (
             <label key={option.value} className={styles.option}>
-              <input
-                type="checkbox"
-                onChange={(event) => {
-                  event.stopPropagation()
-                }}
-              />
-              {option.label}
+              <Checkbox/>
+              <span className={styles.label}>
+                {option.label}
+              </span>
+              
             </label>
           ))}
         </div>

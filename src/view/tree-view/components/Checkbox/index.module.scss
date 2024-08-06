@@ -1,0 +1,55 @@
+.checkbox {
+  display: none;
+}
+
+.label {
+  position: relative;
+  margin-left: 10px;
+  display: flex;
+  min-width: 19px;
+  min-height: 19px;
+  cursor: pointer;
+}
+
+.checkboxBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border: 2px solid black;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.labelDisabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.labelText {
+  margin-left: 27px;
+
+  color: var(--main-black);
+  font-weight: 400;
+  font-size: 14px;
+
+  opacity: 0.5;
+  transition: 0.1s;
+  user-select: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.checkboxBgChecked {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border: 2px solid black;
+  border-radius: 3px;
+  background-image: url(../../../../style/assets/checkbox.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
