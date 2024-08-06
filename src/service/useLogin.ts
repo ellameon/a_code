@@ -1,6 +1,5 @@
 import { useMutation } from "@apollo/client";
 import { LOGIN_MUTATION } from "../transport";
-import { useState } from "react";
 
 type LoginProps = {
   email: string
@@ -8,6 +7,7 @@ type LoginProps = {
 }
 
 export const useLogin = () => {
+
   const [login, {data, error}] = useMutation(LOGIN_MUTATION);
 
   const handleLogin = async (
@@ -22,11 +22,10 @@ export const useLogin = () => {
         password: password
       }
     }).then(res => {
-      if (!data) {
-
+        localStorage.setItem("jwtToken", data.login.token)
+      if (data.login.token !== undefined) {
+        window.location.replace("/main")
       }
-
-      // localStorage.setItem("jwtToken", data.login.token)
 
     }).catch(reason => {
     })
