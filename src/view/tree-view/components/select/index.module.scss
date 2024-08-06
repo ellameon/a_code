@@ -13,7 +13,7 @@
   border-radius: 5px;
   border: none;
   height: 30px;
-padding: 0 10px 0 10px;
+  padding: 0 10px 0 10px;
 }
 
 .options {
@@ -26,6 +26,20 @@ padding: 0 10px 0 10px;
   z-index: 10;
   display: flex;
   flex-flow: column;
+  box-shadow: 0 0 30px 0 rgba(34, 36, 40, 0.10);
+}
+
+.optionsNotOpen {
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
 }
 
 .option {

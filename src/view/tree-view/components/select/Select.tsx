@@ -18,34 +18,39 @@ export const Select = (
     label
   }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [count, setCount] = useState(0);
 
   const handleOptionChange = (optionValue: string) => {
     onChange(optionValue);
   };
 
+  const onCheck = (value: boolean) => {
+    if (value !== true) {
+      setCount(count + 1)
+    } else {
+      setCount(count - 1)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div>
         <div className={styles.header} onClick={() => setIsOpen(!isOpen)}>
-          {label}
+          {`${label} ${count !== 0 ? "+" : ""}${count !== 0 ? count : ""}`}
           <Arrow/>
         </div>
-
       </div>
-
-      {isOpen && (
-        <div className={styles.options}>
+      {isOpen && <div className={styles.backdrop} onClick={() => setIsOpen(false)}/>}
+        <div className={isOpen ? styles.options : styles.optionsNotOpen}>
           {options.map(option => (
             <label key={option.value} className={styles.option}>
-              <Checkbox/>
+              <Checkbox onCheck={onCheck}/>
               <span className={styles.label}>
                 {option.label}
               </span>
-              
             </label>
           ))}
         </div>
-      )}
     </div>
   );
 };

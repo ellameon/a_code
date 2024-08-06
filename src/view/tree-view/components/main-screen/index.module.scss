@@ -1,0 +1,58 @@
+.root {
+ width: 100%;
+  padding: 40px;
+}
+
+.title {
+  font-family: Roboto sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.44px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+th,
+.subTitle{
+  font-family: Roboto sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.75px;
+  text-align: left;
+  border-bottom: 1px solid #BCBCBC;
+  padding-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+
+  font-family: Roboto sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  text-align: left;
+
+}
+
+table {
+  width: 100%;
+
+  th {
+    :first-child {
+      width: 60%;
+    }
+
+    td {
+      width: 220px;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-flow: row;
+  gap: 10px;
+  height: 30px;
+  align-items: center;
+}

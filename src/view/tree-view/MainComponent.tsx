@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
-import { useGetTree, useGetTreeElement } from "../../service"
+import { useGetTree } from "../../service"
 import { TreeElement } from "../../types"
 import { Filters } from "./components/filters"
+import { MainScreenComponent } from "./components/main-screen"
 import { Tree } from "./components/tree"
 import { findEntities } from "./helpers"
 import styles from "./index.module.scss"
@@ -9,10 +10,10 @@ import styles from "./index.module.scss"
 
 export const MainComponent = () => {
   const {getTree} = useGetTree()
-  const {getTreeElement} = useGetTreeElement()
   const [list, setList] = useState<TreeElement[]>([])
   const [listSearched, setListSearched] = useState<TreeElement[]>([])
   const [searchValue, setSearchValue] = useState('')
+  const [selectedElement, setSelectedElement] = useState<TreeElement | undefined>(undefined)
 
   useEffect(() => {
     const fetchTree = async () => {
@@ -33,19 +34,19 @@ export const MainComponent = () => {
     setListSearched(founded)
   }, [list])
 
-  const onElementClick = (id: string) => {
-    async function fetchTreeElement() {
-      try {
-        const data = await getTreeElement(id);
-        console.log('Fetched tree element:', data);
-      } catch (error) {
-        console.error('Failed to fetch tree element', error);
+  const onElementClick = (id: string): TreeElement | undefined => {
+    const stack: TreeElement[] = [...list]
+    while (stack.length > 0) {
+      const element = stack.pop()!
+      if (element.id === id) {
+        setSelectedElement(element);
+        return
+      }
+      if (element.children) {
+        stack.push(...element.children)
       }
     }
-
-    fetchTreeElement();
   }
-
 
   useEffect(() => {
     if (searchValue !== '') {
@@ -59,7 +60,10 @@ export const MainComponent = () => {
   return (
     <div className={styles.root}>
       <Filters onSearch={onSearch}/>
-      <Tree list={listSearched.length > 0 ? listSearched : list} onClick={onElementClick}/>
+      <div className={styles.row}>
+        <Tree list={listSearched.length > 0 ? listSearched : list} onClick={onElementClick}/>
+        <MainScreenComponent element={selectedElement}/>
+      </div>
     </div>
   );
 };
