@@ -1,0 +1,27 @@
+.root {
+
+}
+
+.row {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row;
+  gap: 10px;
+}
+
+.button {
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid #BCBCBC
+}
+
+.content {
+  margin-top: 20px;
+  width: 450px;
+  height: 750px;
+  overflow: auto;
+}
+
+.list {
+  width: fit-content;
+}

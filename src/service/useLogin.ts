@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { useEffect } from "react";
 import { LOGIN_MUTATION } from "../transport";
 
 type LoginProps = {
@@ -23,13 +24,19 @@ export const useLogin = () => {
       }
     }).then(res => {
         localStorage.setItem("jwtToken", data.login.token)
-      if (data.login.token !== undefined) {
-        window.location.replace("/main")
-      }
-
     }).catch(reason => {
     })
   }
+
+  useEffect(() => {
+    if (data) {
+      localStorage.setItem("jwtToken", data.login.token)
+    }
+
+    if (data && localStorage.getItem("jwtToken") === data.login.token) {
+      window.location.replace("/main")
+    }
+  }, [data])
 
   return {
     handleLogin,

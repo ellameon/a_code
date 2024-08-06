@@ -13,11 +13,10 @@ export const GET_TREE = gql`
            name
            children {
              id
-              name
+             name
+            }
+         }
+      }
+   }
  }
- }
- }
- }
- }
-  
 `;

@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+
+.header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F2F2F2B2;
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+padding: 0 10px 0 10px;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  background: #fff;
+  z-index: 10;
+  display: flex;
+  flex-flow: column;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.option input {
+  margin-right: 10px;
+}

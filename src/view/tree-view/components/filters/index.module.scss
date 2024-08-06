@@ -1,0 +1,42 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: Roboto sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23.44px;
+  text-align: left;
+}
+
+.row {
+  display: flex;
+  flex-flow: row;
+  gap: 10px;
+
+  .input {
+    width: 349px;
+    height: 30px;
+    border: 1px solid #BCBCBC;
+    border-radius: 3px;
+    padding-left: 30px;
+
+    ::placeholder {
+      font-family: Roboto sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 18.75px;
+      text-align: left;
+      color: #BCBCBC;
+
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  right: 363px;
+  top: 43px;
+}

@@ -1,14 +1,15 @@
-import { GET_TREE } from "../transport"
+import { GET_TREE_ELEMENT } from "../transport"
 import client from "../transport/Client";
 import { Tree } from "../types";
 
-export const useGetTree = () => {
+export const useGetTreeElement = () => {
 
-  async function getTree(): Promise<Tree> {
+  async function getTreeElement(): Promise<any> {
     try {
       const {data} = await client.query({
-        query: GET_TREE,
+        query: GET_TREE_ELEMENT,
       });
+      console.log(data)
       return data;
     } catch (error) {
       console.error('Error', error);
@@ -17,6 +18,6 @@ export const useGetTree = () => {
   }
 
   return {
-    getTree
+    getTreeElement
   }
 }
