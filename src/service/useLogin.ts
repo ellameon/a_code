@@ -34,6 +34,7 @@ export const useLogin = () => {
     }
 
     if (data && localStorage.getItem("jwtToken") === data.login.token) {
+      localStorage.setItem("user", `${data.login.organizations[0].users[0].name} ${data.login.organizations[0].users[0].surname}`)
       window.location.replace("/main")
     }
   }, [data])

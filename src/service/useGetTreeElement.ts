@@ -4,10 +4,11 @@ import { Tree } from "../types";
 
 export const useGetTreeElement = () => {
 
-  async function getTreeElement(): Promise<any> {
+  async function getTreeElement(id: string): Promise<any> {
     try {
       const {data} = await client.query({
         query: GET_TREE_ELEMENT,
+        variables: {id}
       });
       console.log(data)
       return data;

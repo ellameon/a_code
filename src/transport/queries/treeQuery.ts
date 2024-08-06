@@ -8,12 +8,22 @@ export const GET_TREE = gql`
          id
          name
          sort
+         classTypes {
+           name
+           id
+           standard
+           code
+         }
          children {
            id
            name
            children {
              id
              name
+             children {
+             id
+             name
+             }
             }
          }
       }

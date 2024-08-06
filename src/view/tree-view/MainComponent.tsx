@@ -26,6 +26,7 @@ export const MainComponent = () => {
     fetchTree()
   }, [getTree])
 
+
   const onSearch = useCallback((value: string) => {
     setSearchValue(value)
     const founded = findEntities(value, list)
@@ -33,7 +34,16 @@ export const MainComponent = () => {
   }, [list])
 
   const onElementClick = (id: string) => {
- 
+    async function fetchTreeElement() {
+      try {
+        const data = await getTreeElement(id);
+        console.log('Fetched tree element:', data);
+      } catch (error) {
+        console.error('Failed to fetch tree element', error);
+      }
+    }
+
+    fetchTreeElement();
   }
 
 
