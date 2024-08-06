@@ -1,0 +1,116 @@
+.root {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.content {
+  width: 500px;
+  height: 350px;
+  margin-top: 55px;
+  border: 1px solid #BCBCBC;
+  border-radius: 5px;
+  box-shadow: 2px 4px 4px 0 #0000001A;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.title {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18.75px;
+  text-align: center;
+}
+
+
+.inputWrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 400px;
+
+  span {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+    text-align: left;
+    color: red;
+  }
+
+  input {
+    width: 390px;
+    height: 40px;
+    top: 70px;
+    left: 50px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #BCBCBC;
+    margin: 0;
+    padding-left: 10px;
+
+    & > :focus {
+      border: 1px solid #BCBCBC !important;
+    }
+  }
+
+  input:required:after {
+    content: "*"; /* Звездочка для обозначения обязательного поля */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: red;
+    font-size: 20px;
+  }
+
+  label {
+    height: 30px;
+    text-align: left;
+    width: 100%;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+  }
+}
+
+.button {
+  width: 400px;
+  height: 30px;
+  padding: 5.49px 4px 5.51px 4px;
+  border-radius: 3px;
+  border: 1px solid #BCBCBC;
+  margin-top: 40px;
+  background: white;
+}
+
+.info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.error {
+  font-family: Roboto sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: left;
+  color: #DD1E26;
+  width: 100%;
+}
+
+.authError {
+  font-family: Roboto sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.41px;
+  text-align: center;
+  color: #DD1E26;
+  width: 400px;
+}
