@@ -1,5 +1,5 @@
 import { TreeElement } from "../../../../types"
-import { Checkbox } from "../Checkbox"
+import { Checkbox } from "../checkbox"
 import styles from "./index.module.scss"
 
 type Props = {
@@ -24,11 +24,13 @@ export const MainScreenComponent = (
           Свойства
         </div>
         <table>
-          <th>
-            <td>Название</td>
-            <td>Значение по умолчанию</td>
-            <td>Единица измерения</td>
-          </th>
+          <thead>
+          <tr>
+            <th>Название</th>
+            <th>Значение по умолчанию</th>
+            <th>Единица измерения</th>
+          </tr>
+          </thead>
           <tbody>
           </tbody>
         </table>
@@ -44,7 +46,7 @@ export const MainScreenComponent = (
           </div>
         </div>
         {element?.classTypes && element?.classTypes.map(type => (
-          <div className={styles.row}>
+          <div className={styles.row} key={`${Math.random()}+${type.name}`}>
             <Checkbox/>
             <div>
               {type.name}

@@ -16,6 +16,7 @@ export const Tree = (
     id
   }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean | number>(false)
+  console.log(list)
 
   const handleExpandAll = () => {
     // сделано для случая, когда в раскрытом списке елемент или несколько закрываем и снова хотим раскрыть весь список
@@ -41,7 +42,7 @@ export const Tree = (
             <TreeElementComponent
               id={id}
               element={element}
-              key={element.id}
+              key={`${element.id}+${element.name}`}
               isFirstChild
               isAllOpen={isOpen}
               onClick={onClick}

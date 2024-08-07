@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { TreeElement } from "../../../../types"
-import { Checkbox } from "../Checkbox"
+import { Checkbox } from "../checkbox"
 import { ReactComponent as Arrow } from "./../../../../style/assets/arrow.svg"
 import styles from "./index.module.scss"
 
@@ -35,6 +35,7 @@ export const TreeElementComponent = (
   const isLastChild = element.children === null || element.children === undefined
   return (
     <div className={styles.root}
+         key={`${element.id}+${element.name}`}
          onDoubleClick={(event) => {
            event.stopPropagation()
            setIsOpen(!isOpen)
@@ -62,11 +63,15 @@ export const TreeElementComponent = (
         <div className={styles.content}>
           {element.children && element.children.length > 0 ?
             element.children.map(child => (
-              <TreeElementComponent element={child} key={element.id} isAllOpen={isAllOpen}
-                                    onClick={onElementClick} id={id}/>
+              <TreeElementComponent
+                element={child}
+                key={`${child.id}+${child.name}`}
+                isAllOpen={isAllOpen}
+                onClick={onElementClick} id={id}
+              />
             ))
             : <>
-            {!isLastChild && <div>Нет вложенных элементов</div>}
+              {!isLastChild && <div>Нет вложенных элементов</div>}
             </>
           }
         </div>

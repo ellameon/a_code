@@ -1,7 +1,7 @@
 import styles from "./index.module.scss"
 import React, { useState } from 'react';
 import { ReactComponent as Arrow } from "./../../../../style/assets/arrow.svg"
-import { Checkbox } from "../Checkbox";
+import { Checkbox } from "../checkbox";
 
 type Props = {
   options: { value: string, label: string }[]
