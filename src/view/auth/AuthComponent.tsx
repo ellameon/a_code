@@ -1,5 +1,6 @@
 import styles from "./index.module.scss"
 import { ReactComponent as Logo } from "../../style/assets/logo.svg";
+import { ReactComponent as Close } from "../../style/assets/eye-off.svg";
 import { useEffect, useState } from "react";
 import { useLogin } from "../../service";
 
@@ -11,6 +12,7 @@ export const AuthComponent = () => {
   const [isLoginError, setIsLoginError] = useState(false)
   const [isEmailError, setIsEmailError] = useState(false)
   const [isPasswordError, setIsPasswordError] = useState(false)
+  const [isPasswordOpen, setIsPasswordOpen] = useState(false)
 
   useEffect(() => {
     if (error) {
@@ -66,7 +68,7 @@ export const AuthComponent = () => {
           <label htmlFor="password">Пароль<span>*</span></label>
           <input
             className={styles.input}
-            type="password"
+            type={isPasswordOpen ? "" : "password"}
             id="password"
             name="password"
             value={password}
@@ -74,6 +76,7 @@ export const AuthComponent = () => {
             required
             autoComplete={"off"}
           />
+          <Close className={styles.closeIcon} onClick={() => setIsPasswordOpen(!isPasswordOpen)}/>
           {isPasswordError &&
             <div className={styles.error}>
               Введите пароль

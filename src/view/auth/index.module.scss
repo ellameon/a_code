@@ -30,6 +30,7 @@
 
 .inputWrapper {
   display: flex;
+  position: relative;
   flex-flow: column;
   align-items: center;
   margin-top: 15px;
@@ -89,11 +90,19 @@
   border: 1px solid #BCBCBC;
   margin-top: 30px;
   background: white;
+  cursor: pointer;
 }
 
 .info {
   text-align: center;
   margin-top: 10px;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  cursor: pointer;
 }
 
 .error {
