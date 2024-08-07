@@ -59,10 +59,12 @@ export const MainComponent = () => {
 
   return (
     <div className={styles.root}>
-      <Filters onSearch={onSearch}/>
-      <div className={styles.row}>
-        <Tree list={listSearched.length > 0 ? listSearched : list} onClick={onElementClick}/>
-        <MainScreenComponent element={selectedElement}/>
+      <div className={styles.content}>
+        <Filters onSearch={onSearch}/>
+        <div className={styles.row}>
+          <Tree list={listSearched.length > 0 ? listSearched : list} onClick={onElementClick}/>
+          <MainScreenComponent element={selectedElement}/>
+        </div>
       </div>
     </div>
   );

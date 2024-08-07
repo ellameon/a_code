@@ -1,5 +1,11 @@
 .root {
-  padding: 40px;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.content {
+  width: 1420px;
   display: flex;
   flex-flow: column;
 }

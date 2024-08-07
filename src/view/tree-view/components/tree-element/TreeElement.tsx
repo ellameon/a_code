@@ -7,7 +7,7 @@ import styles from "./index.module.scss"
 type Props = {
   element: TreeElement
   isFirstChild?: boolean
-  isAllOpen: boolean
+  isAllOpen: boolean | number
   onClick: (id: string) => void
 }
 
@@ -21,7 +21,9 @@ export const TreeElementComponent = (
   const [isOpen, setIsOpen] = useState(isAllOpen)
 
   useEffect(() => {
-    setIsOpen(isAllOpen)
+    if (isOpen !== isAllOpen) {
+      setIsOpen(isAllOpen)
+    }
   }, [isAllOpen])
 
   const onElementClick = (id: string) => {
@@ -41,7 +43,8 @@ export const TreeElementComponent = (
                className={isOpen ? styles.arrow : styles.arrowRotated}
           >
             <Arrow/>
-          </div>}
+          </div>
+        }
         {!isFirstChild &&
           <Checkbox/>
         }
@@ -55,11 +58,14 @@ export const TreeElementComponent = (
       </div>
       {isOpen &&
         <div className={styles.content}>
-          {element.children && element.children.length > 0 &&
+          {element.children && element.children.length > 0 ?
             element.children.map(child => (
               <TreeElementComponent element={child} key={element.id} isAllOpen={isAllOpen}
                                     onClick={onElementClick}/>
             ))
+            : <>
+            {!isLastChild && <div>Нет вложенных элементов</div>}
+            </>
           }
         </div>
       }

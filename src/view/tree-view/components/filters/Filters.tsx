@@ -27,10 +27,16 @@ export const Filters = (
         }} value={""} label={"Присвоенные"}/>
         <Select options={options} onChange={() => {
         }} value={""} label={"В библиотеке"}/>
-        <Search className={styles.icon}/>
-        <input type={"search"} className={styles.input} placeholder={"Найти классы"} onChange={(event) => {
-          onSearch( event.currentTarget.value)
-        }}/>
+        <div className={styles.row}>
+          <Search className={styles.icon}/>
+          <input 
+            type={"search"}
+            className={styles.input} 
+            placeholder={"Найти классы"} 
+            onChange={(event) => {
+            onSearch( event.currentTarget.value)
+          }}/>
+        </div>
       </div>
     </div>
   )

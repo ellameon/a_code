@@ -9,10 +9,10 @@ export const useGetTree = () => {
       const {data} = await client.query({
         query: GET_TREE,
       });
-      return data;
+      return data
     } catch (error) {
-      console.error('Error', error);
-      throw error;
+      console.error('Error', error)
+      throw error
     }
   }
 

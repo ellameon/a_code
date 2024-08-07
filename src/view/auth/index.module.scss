@@ -61,7 +61,7 @@
   }
 
   input:required:after {
-    content: "*"; /* Звездочка для обозначения обязательного поля */
+    content: "*";
     position: absolute;
     right: 10px;
     top: 50%;

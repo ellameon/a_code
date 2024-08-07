@@ -11,7 +11,6 @@ export const MainScreenComponent = (
     element
   }: Props) => {
 
-
   return (
     <div className={styles.root}>
       <div>
@@ -24,7 +23,6 @@ export const MainScreenComponent = (
         <div className={styles.title}>
           Свойства
         </div>
-
         <table>
           <th>
             <td>Название</td>
@@ -32,7 +30,6 @@ export const MainScreenComponent = (
             <td>Единица измерения</td>
           </th>
           <tbody>
-
           </tbody>
         </table>
       </div>
@@ -55,10 +52,6 @@ export const MainScreenComponent = (
           </div>
         ))}
       </div>
-
-
-
-
     </div>
   )
 }

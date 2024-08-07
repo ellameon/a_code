@@ -3,12 +3,12 @@ const indexPath = "/";
 const loginPath = "/login";
 
 const objectsPath = {
-	list: "/main",
+  list: "/main",
 };
 
 
 export const paths = {
-	indexPath,
-	loginPath,
-	objectsPath,
+  indexPath,
+  loginPath,
+  objectsPath,
 };

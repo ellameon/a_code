@@ -4,7 +4,7 @@ import { ReactComponent as Arrow } from "./../../../../style/assets/arrow.svg"
 import { Checkbox } from "../Checkbox";
 
 type Props = {
-  options: {value: string, label: string}[]
+  options: { value: string, label: string }[]
   value: string
   onChange: (optionValue: string) => void
   label: string
@@ -21,7 +21,7 @@ export const Select = (
   const [count, setCount] = useState(0);
 
   const handleOptionChange = (optionValue: string) => {
-    onChange(optionValue);
+    onChange(optionValue)
   };
 
   const onCheck = (value: boolean) => {
@@ -41,16 +41,16 @@ export const Select = (
         </div>
       </div>
       {isOpen && <div className={styles.backdrop} onClick={() => setIsOpen(false)}/>}
-        <div className={isOpen ? styles.options : styles.optionsNotOpen}>
-          {options.map(option => (
-            <label key={option.value} className={styles.option}>
-              <Checkbox onCheck={onCheck}/>
-              <span className={styles.label}>
+      <div className={isOpen ? styles.options : styles.optionsNotOpen}>
+        {options.map(option => (
+          <label key={option.value} className={styles.option}>
+            <Checkbox onCheck={onCheck}/>
+            <span className={styles.label}>
                 {option.label}
               </span>
-            </label>
-          ))}
-        </div>
+          </label>
+        ))}
+      </div>
     </div>
   );
 };

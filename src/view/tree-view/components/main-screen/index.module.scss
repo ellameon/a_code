@@ -1,6 +1,6 @@
 .root {
- width: 100%;
-  padding: 40px;
+  width: 100%;
+  padding: 40px 0 40px 40px;
 }
 
 .title {
@@ -13,7 +13,7 @@
 }
 
 th,
-.subTitle{
+.subTitle {
   font-family: Roboto sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -26,7 +26,6 @@ th,
 textarea {
   width: 100%;
   margin-top: 10px;
-
   font-family: Roboto sans-serif;
   font-size: 16px;
   font-weight: 400;

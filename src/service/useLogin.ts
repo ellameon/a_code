@@ -8,8 +8,7 @@ type LoginProps = {
 }
 
 export const useLogin = () => {
-
-  const [login, {data, error}] = useMutation(LOGIN_MUTATION);
+  const [login, {data, error}] = useMutation(LOGIN_MUTATION)
 
   const handleLogin = async (
     {
