@@ -6,7 +6,7 @@ import { useLogin } from "../../service";
 
 
 export const AuthComponent = () => {
-  const {handleLogin, data, error} = useLogin()
+  const {handleLogin, error} = useLogin()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoginError, setIsLoginError] = useState(false)

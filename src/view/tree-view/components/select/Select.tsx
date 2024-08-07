@@ -13,16 +13,11 @@ type Props = {
 export const Select = (
   {
     options,
-    value,
     onChange,
     label
   }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(0);
-
-  const handleOptionChange = (optionValue: string) => {
-    onChange(optionValue)
-  };
 
   const onCheck = (value: boolean) => {
     if (value !== true) {

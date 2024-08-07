@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { TreeElement } from "../../../../types"
 import { TreeElementComponent } from "../tree-element"
 import styles from "./index.module.scss"
