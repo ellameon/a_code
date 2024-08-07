@@ -9,6 +9,7 @@ type Props = {
   isFirstChild?: boolean
   isAllOpen: boolean | number
   onClick: (id: string) => void
+  id?: string
 }
 
 export const TreeElementComponent = (
@@ -16,7 +17,8 @@ export const TreeElementComponent = (
     element,
     isFirstChild,
     isAllOpen,
-    onClick
+    onClick,
+    id
   }: Props) => {
   const [isOpen, setIsOpen] = useState(isAllOpen)
 
@@ -37,7 +39,7 @@ export const TreeElementComponent = (
            event.stopPropagation()
            setIsOpen(!isOpen)
          }}>
-      <div className={styles.row} style={isLastChild ? {marginLeft: "10px"} : {}}>
+      <div className={element.id === id ? styles.selected : styles.row} style={isLastChild ? {marginLeft: "10px"} : {}}>
         {!isLastChild &&
           <div onClick={() => setIsOpen(!isOpen)}
                className={isOpen ? styles.arrow : styles.arrowRotated}
@@ -61,7 +63,7 @@ export const TreeElementComponent = (
           {element.children && element.children.length > 0 ?
             element.children.map(child => (
               <TreeElementComponent element={child} key={element.id} isAllOpen={isAllOpen}
-                                    onClick={onElementClick}/>
+                                    onClick={onElementClick} id={id}/>
             ))
             : <>
             {!isLastChild && <div>Нет вложенных элементов</div>}

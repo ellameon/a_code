@@ -62,7 +62,10 @@ export const MainComponent = () => {
       <div className={styles.content}>
         <Filters onSearch={onSearch}/>
         <div className={styles.row}>
-          <Tree list={listSearched.length > 0 ? listSearched : list} onClick={onElementClick}/>
+          <Tree 
+            id={selectedElement?.id}
+            list={listSearched.length > 0 ? listSearched : list} onClick={onElementClick}
+          />
           <MainScreenComponent element={selectedElement}/>
         </div>
       </div>

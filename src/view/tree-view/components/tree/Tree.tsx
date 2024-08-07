@@ -6,12 +6,14 @@ import styles from "./index.module.scss"
 type Props = {
   list: TreeElement[]
   onClick: (id: string) => void
+  id?: string
 }
 
 export const Tree = (
   {
     list,
-    onClick
+    onClick,
+    id
   }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean | number>(false)
 
@@ -37,6 +39,7 @@ export const Tree = (
         <div className={styles.list}>
           {list && list.map(element => (
             <TreeElementComponent
+              id={id}
               element={element}
               key={element.id}
               isFirstChild
