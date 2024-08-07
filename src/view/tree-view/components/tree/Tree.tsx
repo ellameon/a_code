@@ -16,14 +16,14 @@ export const Tree = (
     id
   }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean | number>(false)
-  console.log(list)
 
   const handleExpandAll = () => {
-    // сделано для случая, когда в раскрытом списке елемент или несколько закрываем и снова хотим раскрыть весь список
+    // сделано для случая, когда в раскрытом списке элемент или несколько закрываем и снова хотим раскрыть весь список
     setIsOpen(Math.random())
   }
   const handleCollapseAll = () => {
-    setIsOpen(false)
+    // сделано для случая, когда в скрытом списке элемент или несколько открываем и снова хотим скрыть весь список
+    setIsOpen(-(Math.random()))
   }
 
   return (

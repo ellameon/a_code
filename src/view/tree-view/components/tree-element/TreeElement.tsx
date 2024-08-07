@@ -20,11 +20,11 @@ export const TreeElementComponent = (
     onClick,
     id
   }: Props) => {
-  const [isOpen, setIsOpen] = useState(isAllOpen)
+  const [isOpen, setIsOpen] = useState(isAllOpen > 0)
 
   useEffect(() => {
     if (isOpen !== isAllOpen) {
-      setIsOpen(isAllOpen)
+      setIsOpen(isAllOpen > 0)
     }
   }, [isAllOpen])
 
